@@ -1,3 +1,15 @@
+// entity.name
+// entity.uniques
+// column.isPrimary
+// col.propertyName
+// column.isNullable
+// column.propertyName
+// column.isPrimary
+// column.isCreateDate
+// column.isGenerated
+// column.isUpdateDate
+// column.isVersion
+
 import {
   GraphQLBoolean,
   GraphQLEnumType,
