@@ -69,5 +69,9 @@
     "//verbose": "--verbose flag must be used to accurately test the CLI writing to stdout",
     "test:prod": "yarn jest --coverage --ci --detectOpenHandles --runInBand --verbose",
     "test:watch": "jest --verbose --watch"
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "http://registry.way-dev.com/"
   }
 }
