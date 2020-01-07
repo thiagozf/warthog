@@ -1201,6 +1201,11 @@
   dependencies:
     "@types/node" "*"
 
+"@types/aws-lambda@^8.10.17", "@types/aws-lambda@^8.10.31":
+  version "8.10.39"
+  resolved "https://registry.npmjs.org/@types/aws-lambda/-/aws-lambda-8.10.39.tgz#da83cf7a82695a8904e383d705829fecf96b7db2"
+  integrity sha512-6qxQ4wS636AapVvDbzltI/Xn69QWxjcvohvxd/+MTWzdE9Vqz1xgERr38jEbBGEkyyG8y819nAhjGsiY6KNh1A==
+
 "@types/babel__core@^7.1.0":
   version "7.1.3"
   resolved "https://registry.npmjs.org/@types/babel__core/-/babel__core-7.1.3.tgz#e441ea7df63cd080dfcd02ab199e6d16a735fc30"
@@ -1900,6 +1905,18 @@ apollo-server-express@^2.6.3, apollo-server-express@^2.9.15:
     parseurl "^1.3.2"
     subscriptions-transport-ws "^0.9.16"
     type-is "^1.6.16"
+
+apollo-server-lambda@^2.9.15:
+  version "2.9.15"
+  resolved "https://registry.npmjs.org/apollo-server-lambda/-/apollo-server-lambda-2.9.15.tgz#8bf76cea78748b39bb2039280eb5dc0fc27a9bde"
+  integrity sha512-9F+ntKnHAAIiAbvTLaQTSRPrvyv1daGYM6ED6NFEVgnQ4sLI0RpEasm5/ekKw/Nbo/Ju/1IVy6aN5g9qqJ9BsA==
+  dependencies:
+    "@apollographql/graphql-playground-html" "1.6.24"
+    "@types/aws-lambda" "^8.10.31"
+    apollo-server-core "^2.9.15"
+    apollo-server-env "^2.4.3"
+    apollo-server-types "^0.2.10"
+    graphql-tools "^4.0.0"
 
 apollo-server-plugin-base@^0.6.10:
   version "0.6.10"

@@ -1,0 +1,48 @@
+{
+  "name": "@warthog/server-lambda",
+  "version": "0.0.0",
+  "description": "Warthog Server Lambda",
+  "main": "dist/index.js",
+  "types": "dist/types/index.d.ts",
+  "files": [
+    "dist",
+    "package.json",
+    "LICENSE",
+    "README.md"
+  ],
+  "author": {
+    "name": "Dan Caddigan",
+    "url": "https://github.com/goldcaddy77"
+  },
+  "homepage": "https://github.com/goldcaddy77/warthog/tree/master/packages/server-lambda#readme",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/goldcaddy77/warthog.git"
+  },
+  "keywords": [
+    "graphql",
+    "typeorm",
+    "lambda",
+    "typescript"
+  ],
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/goldcaddy77/warthog/issues"
+  },
+  "scripts": {
+    "build": "rm -rf ./dist && tsc -p tsconfig.build.json && copyfiles -u 1 src/**/*.ejs dist/"
+  },
+  "dependencies": {
+    "@warthog/core": "^0.0.0",
+    "apollo-server-lambda": "^2.9.15"
+  },
+  "devDependencies": {
+    "@types/aws-lambda": "^8.10.17",
+    "copyfiles": "^2.1.1",
+    "jest": "^24.8.0",
+    "supertest": "^4.0.2",
+    "ts-jest": "^24.0.2",
+    "ts-node": "^7.0.1",
+    "typescript": "^3.7.2"
+  }
+}

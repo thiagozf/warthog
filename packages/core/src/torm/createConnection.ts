@@ -1,7 +1,9 @@
-import { ConnectionOptions, createConnection } from 'typeorm';
+import { ConnectionOptions, createConnection, getConnectionManager } from 'typeorm';
 
 import { SnakeNamingStrategy } from './SnakeNamingStrategy';
 import { logger } from '../core/logger';
+
+const CONNECTION_NAME = 'default';
 
 // TODO: Need to figure out a way for this and the generated ormconfig to be one and the same
 export function getBaseConfig() {
@@ -11,6 +13,7 @@ export function getBaseConfig() {
       migrationsDir: process.env.WARTHOG_DB_MIGRATIONS_DIR,
       subscribersDir: process.env.WARTHOG_DB_SUBSCRIBERS_DIR
     },
+    name: CONNECTION_NAME,
     database: process.env.WARTHOG_DB_DATABASE!, // eslint-disable-line @typescript-eslint/no-non-null-assertion
     entities: getDatabaseEntityPaths(),
     host: process.env.WARTHOG_DB_HOST!, // eslint-disable-line @typescript-eslint/no-non-null-assertion
@@ -30,18 +33,31 @@ export function getBaseConfig() {
 // Note: all DB options should be specified by environment variables
 // Either using TYPEORM_<variable> or WARTHOG_DB_<variable>
 export const createDBConnection = async (dbOptions: Partial<ConnectionOptions> = {}) => {
-  const config = {
-    ...getBaseConfig(),
-    ...dbOptions
-  };
+  let connection;
 
-  if (!config.database) {
-    throw new Error("createConnection: 'database' is required");
+  const connectionManager = getConnectionManager();
+
+  if (connectionManager.has(CONNECTION_NAME)) {
+    connection = connectionManager.get(CONNECTION_NAME);
+    if (!connection.isConnected) {
+      connection = await connection.connect();
+    }
+  } else {
+    const config = {
+      ...getBaseConfig(),
+      ...dbOptions
+    };
+
+    if (!config.database) {
+      throw new Error("createConnection: 'database' is required");
+    }
+
+    logger.debug('createDBConnection', config);
+
+    connection = createConnection(config as any); // TODO: fix any.  It is complaining about `type`
   }
 
-  logger.debug('createDBConnection', config);
-
-  return createConnection(config as any); // TODO: fix any.  It is complaining about `type`
+  return connection;
 };
 
 function getDatabaseEntityPaths(): string[] {
