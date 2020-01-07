@@ -48,10 +48,10 @@ export class Server<C extends BaseContext> {
     private dbOptions: Partial<ConnectionOptions> = {}
   ) {
     if (typeof this.appOptions.generatedFolder !== 'undefined') {
-      process.env.WAY_GENERATED_FOLDER = this.appOptions.generatedFolder;
+      process.env.WARTHOG_GENERATED_FOLDER = this.appOptions.generatedFolder;
     }
     if (typeof this.appOptions.mockDBConnection !== 'undefined') {
-      process.env.WAY_MOCK_DATABASE = this.appOptions.mockDBConnection ? 'true' : 'false';
+      process.env.WARTHOG_MOCK_DATABASE = this.appOptions.mockDBConnection ? 'true' : 'false';
     }
 
     this.container = this.appOptions.container || Container;
