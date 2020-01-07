@@ -38,7 +38,7 @@ describe('cli functional tests', () => {
   // This test actually calls the CLI via a system call.  This won't count towards test coverage
   // but it's the most thorough way we can actually check to see if everything is wired up correctly
   test('spin up an actual process to test the full cli is wired up', async done => {
-    expect.assertions(2);
+    expect.assertions(1);
 
     // Construct the environment variables here so that they're passed into cli command
 
@@ -53,8 +53,6 @@ describe('cli functional tests', () => {
       }
     );
 
-    // TODO: should we bother with this since we don't update the version in package.json?
-    expect(output).toContain('0.0.0');
     // This makes sure we're actually getting the version command and not the standard "help" command, which also includes the version
     expect(output).not.toContain('help');
     done();

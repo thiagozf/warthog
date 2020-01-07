@@ -1,6 +1,6 @@
 {
   "name": "@warthog/server-express",
-  "version": "0.0.0",
+  "version": "0.0.1-alpha.0",
   "description": "Warthog Server Express",
   "main": "dist/index.js",
   "types": "dist/types/index.d.ts",
@@ -37,7 +37,7 @@
     "test:watch": "jest --verbose --watch"
   },
   "dependencies": {
-    "@warthog/core": "^0.0.0",
+    "@warthog/core": "^0.0.1-alpha.0",
     "apollo-server": "^2.6.3",
     "apollo-server-express": "^2.6.3",
     "express": "^4.16.4"
