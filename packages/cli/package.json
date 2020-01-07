@@ -1,6 +1,6 @@
 {
   "name": "@warthog/cli",
-  "version": "0.0.1-alpha.1",
+  "version": "0.0.1-alpha.2",
   "description": "Warthog CLI",
   "main": "dist/cli.js",
   "types": "dist/types/cli.d.ts",
@@ -50,7 +50,7 @@
     "@types/jest": "^24.0.15",
     "@types/prettier": "^1.15.2",
     "@types/supertest": "^2.0.8",
-    "@warthog/core": "^0.0.1-alpha.1",
+    "@warthog/core": "^0.0.1-alpha.2",
     "copyfiles": "^2.1.1",
     "jest": "^24.8.0",
     "open": "^6.3.0",
